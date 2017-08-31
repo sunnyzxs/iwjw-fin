@@ -13,4 +13,3 @@ const install = function(Vue){
 }
 
 install(window.Vue);
-console.log(window.Vue);

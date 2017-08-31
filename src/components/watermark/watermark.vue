@@ -7,14 +7,22 @@
 <script>
     export default {
         name: 'IwjwFinWatermark',
-        data() {
-            return {
-                width:  window.screen.width,
-                height: window.screen.height,
-                canvasData:{
-                    id:['myCanvas','myCanvas1'],
-                    watermark: (window.watermark&&window.watermark.mobile) || '此处为水印',
-                    fontsize: '18px serif'
+        props: {
+            width: {
+                type: Number,
+                default: window.screen.width
+            },
+            height: {
+                type: Number,
+                default: window.screen.height
+            },
+            canvasData:{
+                type: Object,
+                default: function() {
+                    return {
+                                watermark: (window.watermark && window.watermark.mobile) || '此处为水印',
+                                fontsize: '18px serif'
+                            }
                 }
             }
         },
