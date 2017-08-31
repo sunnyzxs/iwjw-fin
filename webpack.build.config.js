@@ -5,7 +5,7 @@ module.exports = {
     entry: path.resolve(__dirname, './src/index.js'),
     output:{
         path:path.resolve(__dirname, './static'),
-        filename: 'index.js'
+        filename: 'iwjw-fin.js'
     },
     resolve: {
         extensions: ['.vue', '.js'],
