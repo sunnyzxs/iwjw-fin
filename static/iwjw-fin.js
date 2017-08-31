@@ -97,6 +97,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'IwjwFinWatermark',
     props: {
+        names: {
+            type: String,
+            required: true
+        },
         width: {
             type: Number,
             default: window.screen.width
@@ -120,11 +124,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
         canvas(canvasData) {
-            let { width, height } = this;
+            let { width, height, names } = this;
             let { fontsize, watermark } = this.canvasData;
             let jLength = width % 70;
             let iLength = height % 70;
-            let canvas = document.getElementById('myCanvas');
+            let canvas = document.getElementById(names);
             canvas.width = width;
             canvas.height = height;
             var ctx = canvas.getContext('2d');
@@ -406,16 +410,14 @@ module.exports = function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "canvas"
   }, [_c('canvas', {
     attrs: {
-      "id": "myCanvas"
+      "id": _vm.names
     }
   })])
-}]}
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

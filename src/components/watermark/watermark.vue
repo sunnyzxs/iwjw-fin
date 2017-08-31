@@ -1,6 +1,6 @@
 <template>
     <div class='canvas'>
-        <canvas id="myCanvas"></canvas>
+        <canvas :id="names"></canvas>
     </div>
 </template>
 
@@ -8,6 +8,10 @@
     export default {
         name: 'IwjwFinWatermark',
         props: {
+            names: {
+                type: String,
+                required: true
+            },
             width: {
                 type: Number,
                 default: window.screen.width
@@ -31,11 +35,11 @@
         },
         methods:{
             canvas(canvasData){
-                let { width, height } = this;
+                let { width, height, names } = this;
                 let {fontsize, watermark} = this.canvasData;
                 let jLength = width % 70;
                 let iLength = height % 70;
-                let canvas = document.getElementById('myCanvas');
+                let canvas = document.getElementById(names);
                 canvas.width = width;
                 canvas.height = height;
                 var ctx = canvas.getContext('2d');
