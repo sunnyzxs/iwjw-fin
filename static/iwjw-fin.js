@@ -109,23 +109,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: Number,
             default: window.screen.height
         },
-        canvasData: {
-            type: Object,
-            default: function () {
-                return {
-                    watermark: window.watermark && window.watermark.mobile || '此处为水印',
-                    fontsize: '18px serif'
-                };
-            }
+        canvasdata: {
+            type: [Object, Array]
         }
     },
     mounted() {
         this.canvas();
     },
     methods: {
-        canvas(canvasData) {
+        canvas() {
             let { width, height, names } = this;
-            let { fontsize, watermark } = this.canvasData;
+            let { fontsize, watermark } = this.canvasdata;
             let jLength = width % 70;
             let iLength = height % 70;
             let canvas = document.getElementById(names);

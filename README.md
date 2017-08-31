@@ -16,7 +16,7 @@
             默认值 屏幕高度
             是否必填 否
 
-    canvasData: 显示数据 
+    canvasdata: 显示数据 
             类型 Object 
             默认值 {
                     watermark: (window.watermark && window.watermark.mobile) || '此处为水印', //水印显示文字

@@ -2,7 +2,7 @@
   "name": "iwjw-fin-water",
   "version": "1.0.0",
   "description": "",
-  "main": "./static/index.js",
+  "main": "./static/iwjw-fin.js",
   "scripts": {
     "start": "webpack --display-modules",
     "dev": "babel-node dev.js",
