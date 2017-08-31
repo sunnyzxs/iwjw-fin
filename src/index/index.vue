@@ -1,9 +1,3 @@
 <template>
-    <div>
-        <router-view></router-view>
-    </div>
+    <iwjw-fin-watermark></iwjw-fin-watermark>
 </template>
-
-<script>
-
-</script>

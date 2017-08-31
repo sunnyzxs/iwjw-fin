@@ -9,7 +9,7 @@ module.exports = {
         filename: '[name].[hash].js'
     },
     resolve: {
-        extensions: ['.js', '.vue'],
+        extensions: ['.vue', '.js'],
         enforceExtension:false,
     },
     module:{
@@ -47,6 +47,6 @@ module.exports = {
             template: path.resolve(__dirname,'index.html'),
             inject: true
         }),
-        // new CleanWebpackPlugin(['static'])
+        new CleanWebpackPlugin(['static'])
     ]
 }

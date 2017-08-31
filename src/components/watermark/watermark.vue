@@ -1,0 +1,58 @@
+<template>
+    <div class='canvas'>
+        <canvas id="myCanvas"></canvas>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'IwjwFinWatermark',
+        data() {
+            return {
+                width:  window.screen.width,
+                height: window.screen.height,
+                canvasData:{
+                    id:['myCanvas','myCanvas1'],
+                    watermark: (window.watermark&&window.watermark.mobile) || '此处为水印',
+                    fontsize: '18px serif'
+                }
+            }
+        },
+        mounted() {
+            this.canvas()   
+        },
+        methods:{
+            canvas(canvasData){
+                let { width, height } = this;
+                let {fontsize, watermark} = this.canvasData;
+                let jLength = width % 70;
+                let iLength = height % 70;
+                let canvas = document.getElementById('myCanvas');
+                canvas.width = width;
+                canvas.height = height;
+                var ctx = canvas.getContext('2d');
+                ctx.font = fontsize;
+                ctx.textBaseline = "top";
+                for(var j = 0; j < jLength; j++){
+                    for(var k = 0; k < iLength; k++){
+                        ctx.save();
+                        ctx.translate((j*2)*70,k*70);
+                        ctx.rotate(50);
+                        ctx.fillText(watermark, 0, 0, 70);
+                        ctx.restore();
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<style lang='scss'>
+    canvas{ 
+        margin: 0;
+        opacity: 0.3;
+        position: fixed;
+        z-index: 0;
+        overflow: hidden;
+    }
+</style>

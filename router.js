@@ -1,7 +1,7 @@
-import watermark from './src/test/watermark';
+import index from './src/index/index'
 
 export default [{
     path:'/',
-    component: watermark,
-    name: 'watermark'
+    component: index,
+    name: 'index'
 }]

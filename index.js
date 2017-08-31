@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routers from './router'
-import App from './src/index/index'
-let test = require('./src/test/watermark');
-console.log(test);
+import App from './src/test'
+import './src/index.js'
 
 //vue
 Vue.use(VueRouter);
@@ -14,6 +13,8 @@ Vue.config.devtools = true;
 const router = new VueRouter({
     routes:routers //问题
 });
+
+console.log('router',router,'routers',routers);
 
 new Vue({
     router,
