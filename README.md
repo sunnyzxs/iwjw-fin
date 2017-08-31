@@ -1,7 +1,5 @@
 # watermark test
-使用方法：
-    <iwjw-fin-watermark :names='names' :width='width' :height='height' :canvasData='canvasData'></iwjw-fin-watermark>
-
+使用方法：（详见：index.html）
     names:  画布ID
             类型 String
             默认值 无
@@ -11,7 +9,7 @@
             类型 Number 
             默认值 屏幕宽度
             是否必填 否
-            
+
     height: 画布高度 
             类型 Number 
             默认值 屏幕高度
