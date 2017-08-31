@@ -5,7 +5,8 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "webpack --display-modules",
-    "dev": "babel-node dev.js"
+    "dev": "babel-node dev.js",
+    "build": "webpack --config webpack.build.config.js"
   },
   "author": "zxs",
   "license": "ISC",
