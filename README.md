@@ -1,5 +1,5 @@
 # watermark test
-使用方法：（详见：index.html）
+使用方法（详见：index.html）:
     names:  画布ID
             类型 String
             默认值 无
