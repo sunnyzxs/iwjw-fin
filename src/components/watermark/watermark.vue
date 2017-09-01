@@ -25,7 +25,8 @@
                 default: function() {
                     return {
                         watermark: (window.watermark && window.watermark.mobile) || '此处为水印',
-                        fontsize: '18px Calibri'
+                        fontsize: '18px Calibri',
+                        fontwidth: '60'
                     }
                 }
             },
@@ -40,7 +41,7 @@
         methods:{
             canvas(){
                 let { width, height, names } = this;
-                let {fontsize, watermark} = this.canvasdata;
+                let {fontsize, watermark, fontwidth} = this.canvasdata;
                 let jLength = width / 50;
                 let iLength = height / 50;
                 let canvas = document.getElementById(names);
@@ -52,9 +53,9 @@
                 for(var j = 0; j < jLength; j++){
                     for(var k = 0; k < iLength; k++){
                         ctx.save();
-                        ctx.translate((j*2)*60,k*60);
+                        ctx.translate((j*2)*fontwidth,k*fontwidth);
                         ctx.rotate(50);
-                        ctx.fillText(watermark, 0, 0, 60);
+                        ctx.fillText(watermark, 0, 0, fontwidth);
                         ctx.restore();
                     }
                 }
