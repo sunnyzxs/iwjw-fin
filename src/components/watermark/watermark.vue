@@ -1,6 +1,6 @@
 <template>
     <div class='canvas'>
-        <canvas :id="names"></canvas>
+        <canvas :id="names" :style='{"opacity": opacity}'></canvas>
     </div>
 </template>
 
@@ -21,7 +21,17 @@
                 default: window.screen.height
             },
             canvasdata:{
-                type: [Object,Array]
+                type: [Object,Array],
+                default: function() {
+                    return {
+                        watermark: (window.watermark && window.watermark.mobile) || '此处为水印',
+                        fontsize: '18px Calibri'
+                    }
+                }
+            },
+            opacity: {
+                type: String,
+                default: '0.3'
             }
         },
         mounted() {
@@ -31,8 +41,8 @@
             canvas(){
                 let { width, height, names } = this;
                 let {fontsize, watermark} = this.canvasdata;
-                let jLength = width % 70;
-                let iLength = height % 70;
+                let jLength = width / 50;
+                let iLength = height / 50;
                 let canvas = document.getElementById(names);
                 canvas.width = width;
                 canvas.height = height;
@@ -42,9 +52,9 @@
                 for(var j = 0; j < jLength; j++){
                     for(var k = 0; k < iLength; k++){
                         ctx.save();
-                        ctx.translate((j*2)*70,k*70);
+                        ctx.translate((j*2)*60,k*60);
                         ctx.rotate(50);
-                        ctx.fillText(watermark, 0, 0, 70);
+                        ctx.fillText(watermark, 0, 0, 60);
                         ctx.restore();
                     }
                 }
@@ -56,7 +66,7 @@
 <style lang='scss'>
     canvas{ 
         margin: 0;
-        opacity: 0.3;
+        opacity: 0.2;
         position: fixed;
         z-index: 0;
         overflow: hidden;

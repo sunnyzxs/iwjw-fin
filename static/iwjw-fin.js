@@ -110,7 +110,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             default: window.screen.height
         },
         canvasdata: {
-            type: [Object, Array]
+            type: [Object, Array],
+            default: function () {
+                return {
+                    watermark: window.watermark && window.watermark.mobile || '此处为水印',
+                    fontsize: '18px Calibri'
+                };
+            }
+        },
+        opacity: {
+            type: String,
+            default: '0.3'
         }
     },
     mounted() {
@@ -120,8 +130,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         canvas() {
             let { width, height, names } = this;
             let { fontsize, watermark } = this.canvasdata;
-            let jLength = width % 70;
-            let iLength = height % 70;
+            let jLength = width / 50;
+            let iLength = height / 50;
             let canvas = document.getElementById(names);
             canvas.width = width;
             canvas.height = height;
@@ -131,9 +141,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             for (var j = 0; j < jLength; j++) {
                 for (var k = 0; k < iLength; k++) {
                     ctx.save();
-                    ctx.translate(j * 2 * 70, k * 70);
+                    ctx.translate(j * 2 * 60, k * 60);
                     ctx.rotate(50);
-                    ctx.fillText(watermark, 0, 0, 70);
+                    ctx.fillText(watermark, 0, 0, 60);
                     ctx.restore();
                 }
             }
@@ -171,7 +181,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "\ncanvas {\n  margin: 0;\n  opacity: 0.3;\n  position: fixed;\n  z-index: 0;\n  overflow: hidden;\n}\n", ""]);
+exports.push([module.i, "\ncanvas {\n  margin: 0;\n  opacity: 0.2;\n  position: fixed;\n  z-index: 0;\n  overflow: hidden;\n}\n", ""]);
 
 // exports
 
@@ -407,6 +417,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "canvas"
   }, [_c('canvas', {
+    style: ({
+      "opacity": _vm.opacity
+    }),
     attrs: {
       "id": _vm.names
     }
