@@ -1,6 +1,6 @@
 <template>
-    <div class='canvas'>
-        <canvas :id="names" :style='{"opacity": opacity}'></canvas>
+    <div class='canvas' v-show='false'>
+        <canvas id="watermark"></canvas>
     </div>
 </template>
 
@@ -8,10 +8,6 @@
     export default {
         name: 'IwjwFinWatermark',
         props: {
-            names: {
-                type: String,
-                required: true
-            },
             width: {
                 type: Number,
                 default: window.screen.width
@@ -37,7 +33,13 @@
             }
         },
         mounted() {
-            this.canvas()
+            let ctx = this.canvas();
+            let src = this.canvasToImage(ctx);
+            let id = document.getElementsByClassName('watermark');
+            for(let i = 0; i< id.length; i++){
+                id[i].style.backgroundImage = `url(${src})`;
+                id[i].style.opacity = this.opacity;
+            }
         },
         methods:{
             canvas(){
@@ -45,7 +47,7 @@
                 let {fontsize, watermark, fontwidth, rotate} = this.canvasdata;
                 let jLength = width / 50;
                 let iLength = height / 50;
-                let canvas = document.getElementById(names);
+                let canvas = document.getElementById('watermark');
                 canvas.width = width;
                 canvas.height = height;
                 var ctx = canvas.getContext('2d');
@@ -60,15 +62,22 @@
                         ctx.restore();
                     }
                 }
+                
+                return ctx;
+            },
+            canvasToImage(ctx){
+                console.log(ctx);
+                var image = new Image();
+                image.src = ctx.canvas.toDataURL("image/png");
+                return image.src;
             }
         }
     }
 </script>
 
 <style lang='scss'>
-    canvas{ 
+    .canvas{ 
         margin: 0;
-        opacity: 0.2;
         position: fixed;
         z-index: 0;
         overflow: hidden;

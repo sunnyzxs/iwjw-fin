@@ -1,10 +1,8 @@
 # watermark test
-使用方法（详见：index.html）：
 
-    names:  画布ID
-            类型 String
-            默认值 无
-            是否必填 是
+watermark 会自动转成 img 添加到 类名为watermark的标签下
+
+使用方法（详见：index.html）：
 
     width:  画布宽度 
             类型 Number 

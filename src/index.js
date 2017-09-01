@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import watermark from './components/index.js'
 
 const components = [

@@ -1,5 +1,7 @@
 <template>
-    <iwjw-fin-watermark :names='names'></iwjw-fin-watermark>
+    <div class='watermark'>
+        <iwjw-fin-watermark :names='names'></iwjw-fin-watermark>
+    </div>
 </template>
 
 <script>
@@ -11,3 +13,10 @@
         }
     }
 </script>
+
+<style lang='scss'>
+    .watermark{
+        width: 100px;
+        height: 100px;
+    }
+</style>
