@@ -22,6 +22,7 @@
                     watermark: (window.watermark && window.watermark.mobile) || '此处为水印', //水印显示文字
                     fontsize: '18px serif'  //文字字体，大小
                     fontwidth: '60' //文字宽度，数值越大，间隔越大
+                    rotate: '50' //文字倾斜角度
                   }
             是否必填 否
 
