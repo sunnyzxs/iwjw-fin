@@ -21,10 +21,11 @@
             默认值 {
                     watermark: (window.watermark && window.watermark.mobile) || '此处为水印', //水印显示文字
                     fontsize: '18px serif'  //文字字体，大小
+                    fontwidth: '60' //文字宽度，数值越大，间隔越大
                   }
             是否必填 否
-            
+
     opacity: 水印透明度
              类型 String
              默认值 0.3
-             是否鼻涕 否
+             是否必填 否
