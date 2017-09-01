@@ -23,3 +23,7 @@
                     fontsize: '18px serif'  //文字字体，大小
                   }
             是否必填 否
+    opacity: 水印透明度
+             类型 String
+             默认值 0.3
+             是否鼻涕 否
