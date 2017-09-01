@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <div class="test">
+            <!-- <router-view></router-view> -->
+            <iwjw-fin-watermark names='test1' :canvasdata='data' :opacity='opacity'></iwjw-fin-watermark>
+            <!-- <iwjw-fin-watermark names='test2'></iwjw-fin-watermark> -->
+        </div>
+        <script src='https://unpkg.com/vue/dist/vue.js'></script>
+        <script src='./static/iwjw-fin.js'></script>
+    </body>
+    <script>
+        new Vue({
+          el: '.test',
+          data: function() {
+            return {    
+                        data: {
+                            'watermark': "45a9b62d4",
+                            'fontsize': "24px serif",
+                            'fontwidth': '100',
+                            'rotate': '100'
+                        },
+                        opacity: '0.4'
+
+                    }
+          }
+        })
+    </script>
+</html>
